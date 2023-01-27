@@ -10,9 +10,8 @@ public class MascaraCNPJ implements Mascara {
     @Override
     public void aplicarMascara(XSSFWorkbook workbook, Cell cell) {
         String cnpj = cell.getStringCellValue();
-        MaskFormatter mask = null;
         try {
-            mask = new MaskFormatter("##.###.###/###.##");
+            MaskFormatter mask = new MaskFormatter("##.###.###/####-##");
             mask.setValueContainsLiteralCharacters(false);
             cell.setCellValue(mask.valueToString(cnpj));
         } catch (ParseException ex) {

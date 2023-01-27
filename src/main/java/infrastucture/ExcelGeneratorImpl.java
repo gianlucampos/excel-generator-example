@@ -1,4 +1,7 @@
+package infrastucture;
+
 import annotations.ExportarColunaExcel;
+import port.ExcelGenerator;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -15,8 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-public class ExcelGeneratorAdapter<T> implements ExcelGenerator<T> {
-
+public class ExcelGeneratorImpl<T> implements ExcelGenerator<T> {
 
     @Override
     public byte[] generateBytes(List<T> rows) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,

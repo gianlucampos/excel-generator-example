@@ -1,4 +1,6 @@
 import entities.ReportTemplate;
+import infrastucture.ExcelGeneratorImpl;
+import port.ExcelGenerator;
 import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,7 +11,7 @@ public class Main {
 
     @SneakyThrows
     public static void main(String[] args) {
-        ExcelGenerator<ReportTemplate> excelGenerator = new ExcelGeneratorAdapter<>();
+        ExcelGenerator<ReportTemplate> excelGenerator = new ExcelGeneratorImpl<>();
         byte[] file = excelGenerator.generateBytes(List.of(buildReportTemplate()));
         writeFile(file);
     }
